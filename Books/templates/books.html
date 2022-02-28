@@ -22,15 +22,15 @@
         </thead>
         <tbody>
             {% for book in books %}
-
-            <td>{{book.title}}</td>
-            <td>{{book.author}}</td>
-            <td>{{book.published_date}}</td>
-            <td>{{book.isbn}}</td>
-            <td>{{book.print_length}}</td>
-            <td>{{book.cover}}</td>
-            <td>{{book.language}}</td>
-            
+            <tr>
+                <td>{{book.title}}</td>
+                <td>{{book.author}}</td>
+                <td>{{book.published_date}}</td>
+                <td>{{book.isbn}}</td>
+                <td>{{book.print_length}}</td>
+                <td>{{book.cover}}</td>
+                <td>{{book.language}}</td>
+            <tr>
             {% endfor %}
         </tbody>
     </table>
