@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+
+
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Published Date</th>
+                <th>ISBN</th>
+                <th>Print Length</th>
+                <th>Cover</th>
+                <th>Language</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+
+            <td>{{book.title}}</td>
+            <td>{{book.author}}</td>
+            <td>{{book.published_date}}</td>
+            <td>{{book.isbn}}</td>
+            <td>{{book.print_length}}</td>
+            <td>{{book.cover}}</td>
+            <td>{{book.language}}</td>
+            
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+{% endblock %}
