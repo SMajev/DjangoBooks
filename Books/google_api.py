@@ -23,6 +23,7 @@ class GoogleAPI:
         url = f'https://www.googleapis.com/books/v1/volumes?q={phrase}'
         try:
             result = requests.get(url).json()['items'][0]['volumeInfo']
+            
         except:
             result = None
 

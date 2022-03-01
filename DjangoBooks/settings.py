@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Books.apps.BooksConfig'
+    'Books.apps.BooksConfig',
+    'django_filters'
 ]
 
 MIDDLEWARE = [

@@ -6,35 +6,44 @@
 
 {% block body %}
 
+    <form method='GET'>
+        {{filter.form}}
+        <input type='submit'/>
+    </form>
 
-<div>
-    <table>
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Published Date</th>
-                <th>ISBN</th>
-                <th>Print Length</th>
-                <th>Cover</th>
-                <th>Language</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for book in books %}
-            <tr>
-                <td>{{book.title}}</td>
-                <td>{{book.author}}</td>
-                <td>{{book.published_date}}</td>
-                <td>{{book.isbn}}</td>
-                <td>{{book.print_length}}</td>
-                <td>{{book.cover}}</td>
-                <td>{{book.language}}</td>
-            <tr>
-            {% endfor %}
-        </tbody>
-    </table>
-</div>
-
-
+    <h1>All Books</h1>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Published Date</th>
+                    <th>ISBN</th>
+                    <th>Print Length</th>
+                    <th>Cover</th>
+                    <th>Language</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for book in filter.qs %}
+                <tr>
+                    <td>{{book.title}}</td>
+                    <td>{{book.author}}</td>
+                    <td>{{book.published_date}}</td>
+                    <td>{{book.isbn}}</td>
+                    <td>{{book.print_length}}</td>
+                    <td><a href="{{book.cover}}">Link to book cover</td>
+                    <td>{{book.language}}</td>
+                    <td>Update</td>
+                    <td>Delete</td>
+                <tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{% url 'add-book' %}">Add Book</a>
+        <a href="{% url 'import-book' %}">import Book</a>
+    </div>
 {% endblock %}

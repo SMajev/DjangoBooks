@@ -2,12 +2,28 @@ from django.views.generic import ListView, CreateView, FormView
 from django.urls import reverse_lazy
 from .models import Book
 from .forms import BookForm, BookImportForm
+from .filters import BookFilter
 from .google_api import GoogleAPI
+from django.http import request
 
 class BooksView(ListView):
     template_name = 'books.html'
     model = Book
     context_object_name = 'books'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["filter"] = BookFilter(self.request.GET, queryset=self.get_queryset())
+        return context
+    
+
+    # def get_queryset(self):
+    #     qs = super().get_queryset()
+    #     my_filter = BookFilter
+    #     return my_filter.qs
+
+    
+
 
 class BookCreate(CreateView):
     template_name = 'book_form.html'
