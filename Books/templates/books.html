@@ -16,6 +16,7 @@
         <table>
             <thead>
                 <tr>
+                    <th>ID</th>
                     <th>Title</th>
                     <th>Author</th>
                     <th>Published Date</th>
@@ -30,6 +31,7 @@
             <tbody>
                 {% for book in filter.qs %}
                 <tr>
+                    <td>{{book.pk}}</td>
                     <td>{{book.title}}</td>
                     <td>{{book.author}}</td>
                     <td>{{book.published_date}}</td>
@@ -37,7 +39,7 @@
                     <td>{{book.print_length}}</td>
                     <td><a href="{{book.cover}}">Link to book cover</td>
                     <td>{{book.language}}</td>
-                    <td>Update</td>
+                    <td><a href="{% url 'update-book' pk=book.pk %}">Update</a></td>
                     <td>Delete</td>
                 <tr>
                 {% endfor %}
