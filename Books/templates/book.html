@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<h2>{{book.title}}</h2>
+<br>
+{% if book.cover %}
+    <img src="{{book.cover}}" alt="No Photo" width="240" height="400" />
+{% else %}
+    <img src="https://thumbs.dreamstime.com/b/no-image-available-icon-photo-camera-flat-vector-illustration-132483141.jpg" alt="No Photo" width="240" height="400" />
+{% endif %}
+<br>
+<p><strong>Author/s: </strong>{{book.author}}</p>
+<p><strong>Published date: </strong>{{book.published_date}}</p>
+<p><strong>ISBN: </strong>{{book.isbn}}</p>
+<p><strong>Print length: </strong>{{book.print_length}}</p>
+<p><strong>Language: </strong>{{book.language}}</p>
+<td><a href="{% url 'update-book' pk=book.pk %}">Update</a></td>
+<td><a href="{% url 'delete-book' pk=book.pk %}">Delete</a></td>
+{% endblock  %}

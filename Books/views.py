@@ -1,4 +1,7 @@
-from django.views.generic import ListView, CreateView, FormView, UpdateView
+from django.views.generic import (
+    ListView, CreateView, FormView, UpdateView, DetailView
+)
+from django.views.generic.edit import DeleteView
 from django.urls import reverse_lazy
 from django.http import request
 from .models import Book
@@ -19,7 +22,10 @@ class BooksView(ListView):
         context["filter"] = BookFilter(self.request.GET, queryset=self.get_queryset())
         return context  
     
- 
+class BookDetailView(DetailView):
+    template_name = 'book.html'
+    model = Book
+    context_object_name = 'book'
 
 class BookCreate(CreateView):
     template_name = 'book_form.html'
@@ -68,5 +74,11 @@ class BookUpdate(UpdateView):
     template_name = 'book_form.html'
     model = Book
     form_class = BookForm
+    success_url = reverse_lazy('books')
+    context_object_name = 'book'
+
+class BookDelete(DeleteView):
+    template_name = 'book_delete.html'
+    model = Book
     success_url = reverse_lazy('books')
     context_object_name = 'book'

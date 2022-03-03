@@ -7,6 +7,10 @@
     {% block head %}{% endblock %}
 <head>
 <body>
-    {% block body %}{% endblock %}
+    <h1>My Library</h1>
+    <p><a href="{% url 'books' %}"/>My books</a></p>
+    <div>
+        {% block body %}{% endblock %}
+    <div>
 </body>
 </html>
