@@ -13,6 +13,7 @@
 
 body {
     width: 100%;
+    height: auto;
 }
 
 h1 {
@@ -139,7 +140,7 @@ h3 {
     min-height:700px;
     margin-top: 0;
     margin-bottom: 0;
-    min-height: 700px;
+
     
 }
 
@@ -259,4 +260,18 @@ input[type=submit] {
     width: 6%;
     padding: 0px 2px 0px;
 
+}
+.no_button {
+    opacity: 90%;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    background-color: var(--main-color);
+    width: 6%;
+    padding: 0px 2px 0px;
 }

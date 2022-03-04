@@ -16,5 +16,5 @@ urlpatterns = [
     path('deletebook/<int:pk>', BookDelete.as_view(), name='delete-book'),
     path('api/books', BooksApiView.as_view(), name='api-books'),
     path('api/books/<title>', BooksApiView2.as_view(), name='api-books2'),
-    path('api/books/<int:id>', BookApiView.as_view(), name='api-book')
+    path('api/books/<int:id>', BookApiView.as_view(), name='api-book'),
 ]

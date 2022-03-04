@@ -24,10 +24,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-6gia@=7a(^wn3rw-eb=b&0e^hfgjzi&-xhem*x6cdsjw3a7j@t'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['mydjangobooks.herokuapp.com',]
-
+# ALLOWED_HOSTS = ['mydjangobooks.herokuapp.com',]
+ALLOWED_HOSTS = []
 
 # Application definition
 
