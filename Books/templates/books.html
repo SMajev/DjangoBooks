@@ -5,17 +5,20 @@
 {% endblock %}
 
 {% block body %}
-   <h2>My Books</h2>
 
+    <div class='search-form'>
+        <form method='GET' class='filter_bar_wrapper'>
+            {{filter.form}}
+            <br>
+            <input type='submit'/>
+            <button class='reset-button'><a href="{%  url 'books' %}">Reset</a></button>
+        </form>
 
-    <form method='GET'>
-        {{filter.form}}
-        <input type='submit'/>
-    </form>
+    </div>
 
 
     <div>
-        <table>
+        <table class='styled-table'>
             <thead>
                 <tr>
                     <th>#</th>
@@ -39,19 +42,17 @@
                     {% else %}
                         <td><img src="https://thumbs.dreamstime.com/b/no-image-available-icon-photo-camera-flat-vector-illustration-132483141.jpg" alt="No Photo" width="130" height="200" /></td>
                     {% endif %}
-                    <td><a href="{% url 'book' pk=book.pk %}"> {{book.title}}</a></td>
+                    <td><a href="{% url 'book' pk=book.pk %}"><p class='book-title'>{{book.title}}</p></a></td>
                     <td>{{book.author}}</td>
                     <td>{{book.published_date}}</td>
                     <td>{{book.isbn}}</td>
                     <td>{{book.print_length}}p.</td>
                     <td>{{book.language}}</td>
-                    <td><a href="{% url 'update-book' pk=book.pk %}">Update</a></td>
-                    <td><a href="{% url 'delete-book' pk=book.pk %}">Delete</a></td>
+                    <td><button><a href="{% url 'update-book' pk=book.pk %}">Update</a></button></td>
+                    <td><button class='red_button'><a href="{% url 'delete-book' pk=book.pk %}">Delete</a></button></td>
                 <tr>
                 {% endfor %}
             </tbody>
         </table>
-        <a href="{% url 'add-book' %}">Add Book</a>
-        <a href="{% url 'import-book' %}">import Book</a>
     </div>
 {% endblock %}

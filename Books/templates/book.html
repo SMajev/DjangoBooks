@@ -2,7 +2,7 @@
 
 {% block body %}
 
-<h2>{{book.title}}</h2>
+<h3>{{book.title}}</h3>
 <br>
 {% if book.cover %}
     <img src="{{book.cover}}" alt="No Photo" width="240" height="400" />
@@ -15,6 +15,6 @@
 <p><strong>ISBN: </strong>{{book.isbn}}</p>
 <p><strong>Print length: </strong>{{book.print_length}}</p>
 <p><strong>Language: </strong>{{book.language}}</p>
-<td><a href="{% url 'update-book' pk=book.pk %}">Update</a></td>
-<td><a href="{% url 'delete-book' pk=book.pk %}">Delete</a></td>
+<button><a href="{% url 'update-book' pk=book.pk %}">Update</a></button>
+<button class='red_button'><a href="{% url 'delete-book' pk=book.pk %}">Delete</a></button>
 {% endblock  %}

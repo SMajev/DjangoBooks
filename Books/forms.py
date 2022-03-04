@@ -6,9 +6,14 @@ class BookForm(forms.ModelForm):
         model = Book
         fields = '__all__'
 
-
 class BookImportForm(forms.Form):
+    phrase = forms.CharField(label='Phrase', max_length=128)
     class Meta:
         fields = '__all__'
 
-    title = forms.CharField(label='title', max_length=128)
+class BookFromGoogle(forms.Form):
+    class Meta:
+        model = Book
+        fields = '__all__'
+
+    

@@ -2,13 +2,13 @@
 
 {% block body %}
 
-<form method='POST'>
+<form method='POST' class='book-form'>
     {% csrf_token %}
     {{form.non_field_errors}}
     <table>
         {%for field in form%}
-            <strong>{{field.label_tag}}</strong>{{field}}<br>
+            <strong>{{field.label_tag}}</strong>{{field}}<br><br>
         {% endfor %}
-    <table>
+    </table>
     <input type='submit' value='Submit'>
 {% endblock  %}

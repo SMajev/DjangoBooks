@@ -2,9 +2,12 @@
 
 {% block body %}
 
-<form method='POST'>
+<form class='delete_form' method='POST'>
     {% csrf_token %}
+    <h3>{{book.title}}</h3>
+    <img src='{{book.cover}}' alt="No Photo" width="130" height="200" />
     <p>Are you sure that you wanna delete: {{book.title}}</p>
+    <button>No!</button>
     <input type='submit' value='submit'>
 </form>
 

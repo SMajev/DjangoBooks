@@ -1,16 +1,37 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang='en'>
 <head>
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <meta http-equiv='X-UA-Compatible' content='ie=edge'>
-    {% block head %}{% endblock %}
+    <link rel='stylesheet' type='text/css' href="{% static 'css/main.css' %}">
 <head>
 <body>
-    <h1>My Library</h1>
-    <p><a href="{% url 'books' %}"/>My books</a></p>
-    <div>
+    <div class='header-container'>
+        <h1>My Library</h1>
+    </div>
+    <div class='navbar'>
+        <ul>
+            <li><a href="{% url 'books' %}"/>My books</a></li>
+            <li><a href="{% url 'add-book' %}">Add Book</a></li>
+            <li><a href="{% url 'import-book' %}">Import Book</a></li>
+            <li><a href="{% url 'about-me' %}">About Me</a></li>
+        </ul>
+    </div>
+    <div class='main-container'>
+        <div class="content"></div>
+
         {% block body %}{% endblock %}
-    <div>
+    </div>
 </body>
+<footer class='my_footer'>
+    <div>
+        <ul>
+            <li><p><strong>Author: </strong> Szymon Majewski</p></li>
+            <li><p><strong>Linkedin: </strong><a href="https://www.linkedin.com/in/szymon-majewski-06588b120/" target="_blank">link</p></a></li>
+            <li><p><strong>GitHub: </strong><a href="https://github.com/SMajev" target="_blank">link</p></a></li>
+        </ul>
+    <div>
+</footer> 
 </html>
